@@ -1,0 +1,6 @@
+module method
+
+language MiniJava
+start symbol ClassDecl
+
+test return [[public Type ID(){return 1;}]] parse succeeds

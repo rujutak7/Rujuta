@@ -1,0 +1,68 @@
+module example
+
+language MiniJava
+start symbol Exp
+
+ 
+test add [[ a && b ]]  parse succeeds
+test lt [[ a < b ]]  parse succeeds
+test add [[ a + b ]]  parse succeeds
+test sub [[ a - b ]]  parse succeeds
+test mul [[ a * b ]]  parse succeeds
+test index [[ a[b] ]]  parse succeeds
+test method call [[ a.b(c,d) ]]  parse succeeds
+test method call wo args [[ a.b() ]]  parse succeeds
+test method call one args [[ a.b(c) ]]  parse succeeds
+test int_literal [[ 3 ]]  parse succeeds
+test true [[ true ]]  parse succeeds
+test false [[ false ]]  parse succeeds
+test id [[ aa ]]  parse succeeds
+test this pointer [[ a.this ]]  parse succeeds
+test instantiation arr [[ new int [ex] ]]  parse succeeds
+test instantiation [[ new a() ]]  parse succeeds
+test logical not [[!a]] parse succeeds
+test paranthesis [[(a)]] parse succeeds
+test int literal [[12_34]] parse succeeds
+test int [[123]] parse succeeds
+test int literal [[12_34]] parse succeeds
+
+
+
+test oct literal [[O12]] parse fails
+test hex literal [[Ox12]] parse fails
+test bin literal [[Ob101]] parse fails
+test long literal [[12L]] parse fails
+test prefix incriment  [[a++]]  parse fails
+test prefix decrement [[a--]] parse fails
+test postfix incriment  [[++a]]  parse fails
+test postfix decrement [[--a]] parse fails
+test unary incriment  [[a+]]  parse fails
+test unary decrement [[a-]] parse fails
+test bitwise not [[~a]] parse fails
+test modulo [[a%3]] parse fails
+test shift [[a >>> 2]] parse fails
+test right shift [[a >> 2]] parse fails
+test left shift [[a << 2]] parse fails
+test gt [[a > 2]] parse fails
+test le [[a <+ 2]] parse fails
+test ge [[a <= 2]] parse fails
+test instanceof [[a instanceof b]] parse fails
+test e [[a == 2]] parse fails
+test ne [[a != 2]] parse fails
+test bitwise and [[a&b]] parse fails
+test ex or [[a^b]] parse fails
+test ex or [[a|b]] parse fails
+test or [[a||b]] parse fails
+test ternary [[(a < b) ? a : b]] parse fails
+test assign [[a=b]] parse fails
+test add assign [[a+=b]] parse fails
+test sub assign [[a-=b]] parse fails
+test mul assign [[a*=b]] parse fails
+test div assign [[a/=b]] parse fails
+test mod assign [[%a=b]] parse fails
+test and assign [[&a=b]] parse fails
+test ex or assign [[^a=b]] parse fails
+test in assign [[|a=b]] parse fails
+test rshift assign [[<<a=b]] parse fails
+test lshift assign [[>>a=b]] parse fails
+test shift assign [[>>>a=b]] parse fails

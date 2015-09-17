@@ -1,0 +1,140 @@
+/*classes with same name
+overloading
+overriding
+printing a variable declared as booolean/object
+e.length applies to only int[]*/
+
+
+
+module Program
+
+language MiniJava
+start symbol MainClass
+
+test only main class [[ 
+	class A{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+]] parse succeeds
+
+test program [[ 
+	class A{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+	class B{
+	public int m(){
+		return 1;
+		}
+	}
+]] parse succeeds
+
+test program1 [[ 
+	class A{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+	class B{
+	public int m(){
+		return 1;
+		}
+	}
+	
+	
+	class C{
+		int a;
+	public int m1(){
+		return 1;
+		}
+	}
+]] parse succeeds
+
+
+test inheritance [[ 
+	class A{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+	class B{
+	public int m(){
+		return 1;
+		}
+	}
+	
+	
+	class C extends B{
+		int a;
+	public int m1(){
+		return 1;
+		}
+	}
+]] parse succeeds
+
+
+test overriding [[ 
+	class A{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+	class B{
+	public int m(){
+		return 1;
+		}
+	}
+	
+	
+	class C extends B{
+		int a;
+		
+		public int m(){
+		return 2;
+		}
+		
+	public int m1(){
+		return 1;
+		}
+	}
+]] parse succeeds
+
+
+
+
+test duplicate main class [[ 
+	class A{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+	class B{
+		public static void main(String[] a){
+			{
+				System.out.println (1);
+			}
+		}
+	} 
+	
+]] parse fails

@@ -1,0 +1,47 @@
+module mainClass
+
+language MiniJava
+start symbol MainClass
+
+
+test main class [[ 
+	class A{
+		public static void main(String[] a){
+			
+		}
+	} 
+]] parse succeeds
+
+test main class1 [[ 
+	class A{
+		public static void main(String[] a){
+			System.out.println (1);
+		}
+	} 
+]] parse succeeds
+
+
+
+test main class2 [[ 
+	class A{
+		public static void main(String[] a){
+			{
+			System.out.println (1);
+			System.out.println (1);
+			}
+		}
+	} 
+]] parse succeeds
+
+
+
+test statements wiithout brace [[ 
+	class A{
+		public static void main(String[] a){
+			
+			System.out.println (1);
+			System.out.println (1);
+			
+		}
+	} 
+]] parse fails

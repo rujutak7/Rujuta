@@ -1,0 +1,23 @@
+module example
+
+language MiniJava
+start symbol INT
+
+test zero [[0]]  parse succeeds
+test negetive zero [[-0]]  parse succeeds
+test positiveInt [[23]]  parse succeeds
+test negetiveInt [[-23]]  parse succeeds
+
+
+
+test exceedeUpperLimit [[32768]] parse fails
+test exceedeLowerLimit [[-32769]] parse fails
+test alphabet [[a]] parse fails
+test specialChar [[*]] parse fails
+test float [[7.6]] parse fails
+test intSpace [[2 2]] parse fails
+
+test zero [[0]] parse to INTEGER("0")
+test double digit [[23]] parse to INTEGER("23")
+test neg double digit [[-23]] parse to INTEGER("-23")
+test AST for positiveInt [[23]]  parse to Int(23)

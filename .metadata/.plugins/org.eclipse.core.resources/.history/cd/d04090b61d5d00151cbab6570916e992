@@ -1,0 +1,116 @@
+module example
+
+language MiniJava
+start symbol Statement
+
+
+
+
+test brace   [[{}]]  parse succeeds
+test double brace   [[{ { } }]]  parse succeeds
+test print stmt   [[System.out.println ( 12 ) ;]]  parse succeeds
+test print in brace   [[{System.out.println ( 12 ) ;}]]  parse succeeds
+
+test multiple print  
+[[
+	{
+	System.out.println ( 12 ) ;
+	System.out.println ( 123 ) ;
+	System.out.println ( a ) ;
+	}
+]]  parse succeeds
+
+test if condition 
+[[
+	if (a<2)
+	System.out.println ( 0 ) ;
+	else
+	System.out.println ( 1 ) ;
+	
+]]  parse succeeds
+
+
+test if condition1 
+[[
+	if (a<2)
+	{
+	System.out.println ( 0 ) ;
+	System.out.println ( 123 ) ;
+	}
+	else
+	{
+	System.out.println ( 1 ) ;
+	}
+	
+]]  parse succeeds
+
+
+test while condition
+[[
+	while (a<2)
+	System.out.println ( 0 ) ;
+	
+		
+]]  parse succeeds
+
+
+test while condition1 
+[[
+	while (a<2)
+	{
+	System.out.println ( 0 ) ;
+	System.out.println ( 123 ) ;
+	}
+		
+]]  parse succeeds
+
+
+test assignment
+[[
+	a=2;		
+]]  parse succeeds
+
+test assignment1
+[[
+	a=b+c;		
+]]  parse succeeds
+
+test array assignment
+[[
+	a[2]=2;		
+]]  parse succeeds
+
+test array assignment1
+[[
+	a[b]=c;		
+]]  parse succeeds
+
+test array creation
+[[
+	a= new int[3];
+]] parse succeeds
+
+test obj creation
+[[
+	obj= new cl();
+]] parse succeeds
+
+
+
+test printing string [[System.out.println ("Hi") ;]] parse fails
+
+test elsif loop [[
+	if(a<3)
+	System.out.println (1);
+	elseif (a<9)
+	System.out.println (2);
+	else
+	System.out.println (3);
+]] parse fails
+
+test dowhile loop [[
+	do{
+	System.out.println (1);
+	}while(a<9)
+	
+]] parse fails

@@ -1,0 +1,10 @@
+module example
+
+language MiniJava
+start symbol INT
+
+test double digit   [[42]]  parse succeeds
+test floating point [[4.2]] parse fails
++ve 0
+-ve 0
+max ranges

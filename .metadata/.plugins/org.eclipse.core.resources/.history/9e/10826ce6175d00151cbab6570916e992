@@ -1,0 +1,48 @@
+module example
+
+language MiniJava
+start symbol Statement
+
+
+
+
+test brace   [[{}]]  parse succeeds
+test double brace   [[{ { } }]]  parse succeeds
+test print stmt   [[System.out.println ( 12 ) ;]]  parse succeeds
+test print in brace   [[{System.out.println ( 12 ) ;}]]  parse succeeds
+
+test multiple print  
+[[
+	{System.out.println ( 12 ) ;
+	System.out.println ( 123 ) ;
+	System.out.println ( a ) ;}
+]]  parse succeeds
+
+test if condition 
+[[
+	if (a<2)
+	System.out.println ( 0 ) ;
+	else
+	System.out.println ( 1 ) ;
+	
+]]  parse succeeds
+
+
+test if condition1 
+[[
+	if (a<2)
+	{
+	System.out.println ( 0 ) ;
+	System.out.println ( 123 ) ;
+	}
+	else
+	{
+	System.out.println ( 1 ) ;
+	}
+	
+]]  parse succeeds
+
+
+
+
+test floating point [[4.2]] parse fails

@@ -1,0 +1,15 @@
+module example
+
+language MiniJava
+start symbol Statement
+
+
+
+
+test double digit   [[{}]]  parse succeeds
+test double digit   [[{ { } }]]  parse succeeds
+
+
+
+
+test floating point [[4.2]] parse fails

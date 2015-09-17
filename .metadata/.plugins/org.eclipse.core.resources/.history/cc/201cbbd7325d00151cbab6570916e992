@@ -1,0 +1,18 @@
+module method
+
+language MiniJava
+start symbol MethodDecl
+
+/*MethodDecl 	$\!\!\!\!\rightarrow\!\!\!\!$ 	public Type id ( FormalList )
+  	  	     { VarDecl $^{\textstyle *}$ Statement $^{\textstyle *}$ return Exp ; } */
+
+test return [[public Type ID(){return 1;}]] parse succeeds
+test return [[public Type ID(int a){return 1;}]] parse succeeds
+test return [[public Type ID(int a, int b){return 1;}]] parse succeeds
+test return [[public Type ID(int a, int b){int p; System.out.println(2); return 1;}]] parse succeeds
+test return [[public Type ID(int a, int b){int p; int q; System.out.println(2); System.out.println(2); return 1;}]] parse succeeds
+
+
+test wo return [[public void m(){int a;}]] parse fails
+test return [[private Type ID(){int a; return 1;}]] parse fails
+test return [[protected Type ID(){int a; return 1;}]] parse fails

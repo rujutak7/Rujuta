@@ -1,0 +1,24 @@
+module example
+
+language MiniJava
+start symbol Type
+
+test typeInt   [[int]]  parse succeeds
+test typrBool [[boolean]] parse succeeds
+test ArrInt [[int[]  ]] parse succeeds
+test ArrInt1 point [[int[ ] ]] parse succeeds
+test ArrInt2 point [[int [ ] ]] parse succeeds
+test class type [[A ]] parse succeeds
+
+
+test byte type [[byte ]] parse succeeds
+test short type [[short ]] parse succeeds
+test long type [[long ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds
+test class type [[A ]] parse succeeds

@@ -1,0 +1,70 @@
+module TestId
+
+language MiniJava
+start symbol ID
+
+test single alphabet [[A]]  parse succeeds
+test multiple chars [[abc]] parse succeeds
+test includin nums [[abc12a]] parse succeeds
+test with underscores [[a_b]] parse succeeds
+test end with underscore [[abc_]] parse succeeds
+test uppercase keyword [[DO]] parse succeeds
+
+test id with space [[a bc]] parse fails
+test start with underscore [[_abc]] parse fails
+test tartunicode urrency [[$abc]] parse fails
+test unicode currency end [[abc$]] parse fails
+test unicode currency intermediate [[a$bc]] parse fails
+test start with num [[12abc]] parse fails
+test keyword1 [[abstract]] parse fails
+test keyword2 [[assert]] parse fails
+test keyword3 [[booolean]] parse fails
+test keyword4 [[break]] parse fails
+test keyword5 [[byte]] parse fails
+test keyword6 [[case]] parse fails
+test keyword7 [[catch]] parse fails
+test keyword8 [[char]] parse fails
+test keyword9 [[class]] parse fails
+test keyword10 [[const]] parse fails
+test keyword11 [[continue]] parse fails
+test keyword12 [[default]] parse fails
+test keyword13 [[do]] parse fails
+test keyword14 [[double]] parse fails
+test keyword15 [[else]] parse fails
+test keyword16 [[enum]] parse fails
+test keyword17 [[extends]] parse fails
+test keyword18 [[final]] parse fails
+test keyword19 [[finally]] parse fails
+test keyword20 [[float]] parse fails
+test keyword21 [[for]] parse fails
+test keyword22 [[goto]] parse fails
+test keyword23 [[if]] parse fails
+test keyword24 [[implements]] parse fails
+test keyword25 [[import]] parse fails
+test keyword26 [[instanceof]] parse fails
+test keyword27 [[int]] parse fails
+test keyword28 [[interface]] parse fails
+test keyword29 [[long]] parse fails
+test keyword30 [[natiive]] parse fails
+test keyword31 [[new]] parse fails
+test keyword33 [[package]] parse fails
+test keyword32 [[private]] parse fails
+test keyword33 [[protected]] parse fails
+test keyword34 [[public]] parse fails
+test keyword35 [[return]] parse fails
+test keyword36 [[short]] parse fails
+test keyword37 [[static]] parse fails
+test keyword38 [[strictfp]] parse fails
+test keyword39 [[super]] parse fails
+test keyword40 [[switch]] parse fails
+test keyword42 [[this]] parse fails
+test keyword43 [[throw]] parse fails
+test keyword44 [[throws]] parse fails
+test keyword45 [[transient]] parse fails
+test keyword46 [[try]] parse fails
+test keyword47 [[void]] parse fails
+test keyword48 [[volatile]] parse fails
+test keyword49 [[while]] parse fails
+test keyword50 [[false]] parse fails
+test keyword51 [[true]] parse fails
+test keyword52 [[null]] parse fails

@@ -1,0 +1,17 @@
+module VarDeclaration
+
+language MiniJava
+start symbol VarDecl
+
+ 
+test integer [[ int a; ]]  parse succeeds
+test int array [[ int[] a; ]]  parse succeeds
+test boolean [[boolean tof ;]] parse succeeds
+
+test array [[int[] arr=new int[5];]] parse fails
+test array [[int[] arr={1,3,5};]] parse fails
+test array [[int[] arr=new int[] {6,7};]] parse fails
+test multiDimentionalArr [[ int[][] arr={ {0,1}, {1,0}};]] parse fails
+test many integers [[ int a,b,c; ]]  parse fails
+test integer initialization [[ int a=0; ]]  parse fails
+test boolean initialization [[boolean tof = true;]] parse fails

@@ -1,0 +1,33 @@
+module MiniJava.main
+
+imports
+  MiniJava-Colorer
+  MiniJava-Completions
+  MiniJava-Folding
+  MiniJava-Menus
+  MiniJava-Refactorings
+  MiniJava-References
+  MiniJava-Syntax
+  MiniJava-Views
+
+language General properties
+  
+  name:          MiniJava
+  id:            MiniJava
+  extends:       Root
+  
+  description:   "Spoofax-generated editor for the MiniJava language"
+  url:           http://strategoxt.org
+  
+  extensions:    mjv
+  table:         include/MiniJava.tbl
+  start symbols: Start
+  
+  provider:      include/minijava.ctree
+  provider:      include/minijava-java.jar
+  
+  observer:      editor-analyze (multifile)
+  
+  on save:       editor-save
+  
+  jvm opts:      -server -Xss8m -Xmx1024m

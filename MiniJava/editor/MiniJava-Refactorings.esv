@@ -1,0 +1,7 @@
+module MiniJava-Refactorings
+
+imports MiniJava-Refactorings.generated
+
+refactorings
+
+  text reconstruction : construct-textual-change

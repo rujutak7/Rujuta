@@ -1,0 +1,37 @@
+module Class
+
+language MiniJava
+start symbol ClassDecl
+
+//class id {var decl* method decl*}
+
+test simple class [[ class A{} ]] parse succeeds
+test field [[ class A{ int a;} ]] parse succeeds
+test fields [[ 
+	class A{
+		int a;
+		int b;
+		}
+]] parse succeeds
+test simple class [[ class A{} ]] parse succeeds
+test simple class [[ class A{} ]] parse succeeds
+test simple class [[ class A{} ]] parse succeeds
+test simple class [[ class A{} ]] parse succeeds
+test simple class [[ class A{} ]] parse succeeds
+
+
+test caps C [[ Class A{} ]] parse fails
+
+test same fields [[ 
+	class A{
+		int a;
+		int a;
+		}
+]] parse fails
+
+test same fields1 [[ 
+	class A{
+		int a;
+		boolean a;
+		}
+]] parse fails

@@ -1,0 +1,18 @@
+module TestMethod
+
+language MiniJava
+start symbol MethodDecl
+
+test return [[public Type ID(){return 1;}]] parse succeeds
+test return [[public Type ID(int a){return 1;}]] parse succeeds
+test return [[public Type ID(int a, int b){return 1;}]] parse succeeds
+test return [[public Type ID(int a, int b){int p; System.out.println(2); return 1;}]] parse succeeds
+test return [[public Type ID(int a, int b){int p; int q; System.out.println(2); System.out.println(2); return 1;}]] parse succeeds
+
+
+test wo return [[public void m(){int a;}]] parse fails
+test abstract [[abstract void m(){int a;}]] parse fails
+test private [[private Type ID(){int a; return 1;}]] parse fails
+test protected [[protected Type ID(){int a; return 1;}]] parse fails
+test static mthod [[public static void m(){int a;}]] parse fails
+test final method [[ fianl int m(){return 1;}]] parse fails
